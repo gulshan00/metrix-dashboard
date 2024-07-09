@@ -19,7 +19,7 @@ const Dashboardheader = () => {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5.121 18.364A9 9 0 1118.364 5.121M18 9v3h-3"></path>
           </svg>
         </button>
-        <img src="profile-picture-url" alt="Profile" className="w-10 h-10 rounded-full"/>
+        <img src="Images/avtar.jpg" alt="Profile" className="w-10 h-10 rounded-full"/>
       </div>
     </div>
   );

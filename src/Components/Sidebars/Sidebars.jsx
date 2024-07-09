@@ -44,7 +44,7 @@ const Sidebars = ({ setActiveTab }) => {
             <div className="flex items-center justify-between">
               <div className="flex items-center">
                 <img
-                  src="Images/path.png" // Placeholder logo image
+                  src="Images/logo.png" // Placeholder logo image
                   alt="Logo"
                   className="w-8 h-8 rounded-full"
                 />

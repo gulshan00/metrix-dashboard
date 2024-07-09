@@ -3,10 +3,7 @@ import Sidebars from './Components/Sidebars/Sidebars';
 import DashboardHeader from './Components/DashboardHeader/DashboardHeader';
 import Dashboard from './Components/Dashboard/Dashboard';
 import RecentOrders from './Components/RecentOrders/RecentOrders';
-// import Customers from './components/Customers'; 
-// import Inventory from './components/Inventory'; 
-// import Conversations from './components/Conversations'; 
-// import Settings from './components/Settings'; 
+
 
 function App() {
   const [activeTab, setActiveTab] = useState('dashboard');
