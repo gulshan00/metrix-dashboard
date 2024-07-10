@@ -8,7 +8,7 @@ const orders = [
     price: "₦730,000.00",
     status: "Pending",
     date: "12 Sept 2022",
-    imageUrl: "Images/avtar.jpg",
+    imageUrl: "Images/phone.png",
   },
   {
     id: 2,
@@ -16,7 +16,7 @@ const orders = [
     price: "₦730,000.00",
     status: "Completed",
     date: "12 Sept 2022",
-    imageUrl: "Images/avtar.jpg",
+   imageUrl: "Images/phone.png",
   },
   {
     id: 3,
@@ -24,7 +24,7 @@ const orders = [
     price: "₦730,000.00",
     status: "Pending",
     date: "12 Sept 2022",
-    imageUrl: "Images/avtar.jpg",
+   imageUrl: "Images/phone.png",
   },
   {
     id: 4,
@@ -32,29 +32,26 @@ const orders = [
     price: "₦730,000.00",
     status: "Completed",
     date: "12 Sept 2022",
-    imageUrl: "Images/avtar.jpg",
+    imageUrl: "Images/phone.png",
   },
+
+  
  
 ];
 
 const MarketingChart = () => {
-  const [timePeriod, setTimePeriod] = useState("This Week");
-
   return (
     <div className="flex flex-col lg:flex-row gap-6">
-      {/* Left side: Marketing Chart */}
       <div className="bg-white p-6 rounded-lg shadow-lg lg:flex-1">
         <div className="flex justify-between items-center mb-4">
-          <h2 className="text-xl font-bold">Marketing</h2>
+          <h2 className="text-lg font-medium">Marketing</h2>
           <select
-            className="border border-gray-300 rounded-md p-2"
-            value={timePeriod}
-            onChange={(e) => setTimePeriod(e.target.value)}
-          >
-            <option>This Week</option>
-            <option>Last Week</option>
-            <option>First Week</option>
-          </select>
+              className="rounded-md p-2 text-gray-500"style={{background:"none"}}
+            >
+              <option>This Week</option>
+              <option>Last Week</option>
+              <option>First Week</option>
+            </select>
         </div>
         <div className="relative w-40 h-40 mx-auto mb-4">
           <div className="absolute inset-0 rounded-full border-4 border-blue-500" />
@@ -77,21 +74,11 @@ const MarketingChart = () => {
           </div>
         </div>
       </div>
-
-      {/* Right side: All Products and Abandoned Cart */}
       <div className="flex flex-col gap-6 lg:w-1/2">
         <div className="bg-blue-500 p-6 rounded-lg shadow-lg">
           <div className="flex justify-between items-center mb-4">
-            <h2 className="text-xl font-bold text-white">All Products</h2>
-            <select
-              className="border border-gray-300 rounded-md p-2 text-gray-800"
-              value={timePeriod}
-              onChange={(e) => setTimePeriod(e.target.value)}
-            >
-              <option>This Week</option>
-              <option>Last Week</option>
-              <option>First Week</option>
-            </select>
+            <h2 className="text-lg font-medium text-white">All Products</h2>
+           
           </div>
           <p className="text-white text-2xl font-bold">45</p>
           <p className="text-white">
@@ -101,11 +88,9 @@ const MarketingChart = () => {
 
         <div className=" p-6 bg-white rounded-lg shadow-lg">
           <div className="flex justify-between items-center mb-4">
-            <h2 className="text-xl font-bold text-black">Abandoned Cart</h2>
+            <h2 className="text-lg font-medium text-black">Abandoned Cart</h2>
             <select
-              className="border border-gray-300 rounded-md p-2 text-gray-800"
-              value={timePeriod}
-              onChange={(e) => setTimePeriod(e.target.value)}
+              className="rounded-md p-2 text-gray-500"style={{background:"none"}}
             >
               <option>This Week</option>
               <option>Last Week</option>
@@ -136,7 +121,7 @@ const ProgressBar = ({ progress, max, date }) => {
 };
 
 const Summary = () => {
-  const [timePeriod, setTimePeriod] = useState("This Week");
+  const [timePeriod, setTimePeriod] = useState("Last 7 days");
 
   const data = {
     "This Week": [
@@ -148,7 +133,7 @@ const Summary = () => {
       { date: 'Sept 15', progress: 50000, max: 100000 },
       { date: 'Sept 16', progress: 100000, max: 100000 },
     ],
-    "Last Week": [
+    "Last 7 days": [
       { date: 'Sept 3', progress: 90000, max: 100000 },
       { date: 'Sept 4', progress: 70000, max: 100000 },
       { date: 'Sept 5', progress: 50000, max: 100000 },
@@ -171,25 +156,23 @@ const Summary = () => {
   return (
     <div className="bg-white p-6 rounded-lg shadow-lg">
       <div className="flex justify-between items-center mb-4">
-        <h2 className="text-xl font-bold">Summary</h2>
+        <h2 className="text-lg font-medium">Summary</h2>
         <select
-          className="border border-gray-300 rounded-md p-2"
+          className=" text-gray-500 rounded-md p-2"
           value={timePeriod}
           onChange={(e) => setTimePeriod(e.target.value)}
         >
           <option>This Week</option>
-          <option>Last Week</option>
+          <option> Last 7 days </option>
           <option>First Week</option>
         </select>
       </div>
       <div className="flex">
-        {/* Y-axis labels */}
         <div className="flex flex-col justify-between h-48 pr-2">
           {[100, 80, 60, 40, 20].map((value, index) => (
             <div key={index} className="text-sm text-gray-500">{value}k</div>
           ))}
         </div>
-        {/* Progress bars */}
         <div className="flex-1 grid grid-cols-7 gap-2">
           {data[timePeriod].map((item, index) => (
             <ProgressBar key={index} progress={item.progress} max={item.max} date={item.date} />
@@ -236,20 +219,16 @@ const RecentOrders = () => {
 };
 
 const Dashboard = () => {
-  const [timePeriod, setTimePeriod] = useState("This Week");
-
   return (
     <div className=" bg-gray-100 space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <div className="p-6 bg-white shadow-md rounded-lg flex flex-col justify-between">
           <div className="flex justify-between items-center mb-2">
-            <div className="bg-blue-100 p-2 rounded-full">
+            <div className="bg-blue-100 p-2 rounded-md">
               <FaChartPie className="text-blue-500" />
             </div>
             <select
-              className="border border-gray-300 rounded-md p-2"
-              value={timePeriod}
-              onChange={(e) => setTimePeriod(e.target.value)}
+              className="rounded-md p-2 text-gray-500"style={{background:"none"}}
             >
               <option>This Week</option>
               <option>Last Week</option>
@@ -259,11 +238,11 @@ const Dashboard = () => {
           <div className="flex justify-between items-center">
             <div className="text-left">
               <h3 className="text-gray-500">Sales</h3>
-              <p className="text-2xl font-medium">₦4,000,000.00</p>
+              <p className="text-lg font-medium">₦4,000,000.00</p>
             </div>
             <div className="">
               <h3 className="text-gray-500">Volume</h3>
-              <p className="text-2xl font-medium">
+              <p className="text-lg font-medium">
                 450 <span className="text-green-500 text-sm">+20%</span>
               </p>
             </div>
@@ -272,13 +251,11 @@ const Dashboard = () => {
 
         <div className="p-6 bg-white shadow-md rounded-lg flex flex-col justify-between">
           <div className="flex justify-between items-center mb-2">
-            <div className="bg-blue-100 p-2 rounded-full">
-              <FaChartPie className="text-blue-500" />
+            <div className="bg-blue-100 p-2 rounded-md">
+              <img src="Images/2 User.png" className="" />
             </div>
             <select
-              className="border border-gray-300 rounded-md p-2"
-              value={timePeriod}
-              onChange={(e) => setTimePeriod(e.target.value)}
+              className="rounded-md p-2 text-gray-500"style={{background:"none"}}
             >
               <option>This Week</option>
               <option>Last Week</option>
@@ -288,11 +265,11 @@ const Dashboard = () => {
           <div className="flex justify-between items-center">
             <div className="text-left">
               <h3 className="text-gray-500">Customers</h3>
-              <p className="text-2xl font-medium">1,250</p>
+              <p className="text-lg font-medium">1,250</p>
             </div>
             <div className="">
               <h3 className="text-gray-500">Active</h3>
-              <p className="text-2xl font-medium">
+              <p className="text-lg font-medium">
                 1,180 <span className="text-green-500 text-sm">85%</span>
               </p>
             </div>
@@ -301,13 +278,11 @@ const Dashboard = () => {
 
         <div className="p-6 bg-white shadow-md rounded-lg flex flex-col justify-between">
           <div className="flex justify-between items-center mb-2">
-            <div className="bg-blue-100 p-2 rounded-full">
-              <FaChartPie className="text-blue-500" />
+            <div className="p-2 ">
+              <img src="Images/icon(1).png" className="" />
             </div>
             <select
-              className="border border-gray-300 rounded-md p-2"
-              value={timePeriod}
-              onChange={(e) => setTimePeriod(e.target.value)}
+              className="rounded-md p-2 text-gray-500"style={{background:"none"}}
             >
               <option>This Week</option>
               <option>Last Week</option>
@@ -317,15 +292,15 @@ const Dashboard = () => {
           <div className="flex justify-between items-center">
             <div className="text-left">
               <h3 className="text-gray-500">All Orders</h3>
-              <p className="text-2xl font-medium">1,250</p>
+              <p className="text-lg font-medium">1,250</p>
             </div>
-            <div className="text-right">
+            <div className="">
               <h3 className="text-gray-500">Pending</h3>
-              <p className="text-2xl font-medium">5</p>
+              <p className="text-lg font-medium">5</p>
             </div>
             <div className="text-right">
               <h3 className="text-gray-500">Completed</h3>
-              <p className="text-2xl font-medium">445</p>
+              <p className="text-lg font-medium">445</p>
             </div>
           </div>
         </div>

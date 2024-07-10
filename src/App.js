@@ -28,19 +28,12 @@ function App() {
   };
 
   return (
-    // <div className="flex h-screen bg-gray-100">
-    //   <Sidebar setActiveTab={setActiveTab} />
-    //   <div className="flex-1 flex flex-col">
-    //     <DashboardHeader/>
-    //     {renderContent()}
-    //   </div>
-    // </div>
 
     <div className="flex h-screen bg-gray-100">
     <Sidebars setActiveTab={setActiveTab} />
     <div className="flex-1 flex flex-col">
       <DashboardHeader/>
-      <div className="p-6 flex-1 overflow-y-auto">
+      <div className=" p-4 flex-1 overflow-y-auto">
         {renderContent()}
       </div>
     </div>
