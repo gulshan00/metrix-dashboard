@@ -34,7 +34,7 @@ const Sidebars = ({ setActiveTab }) => {
       <div className="flex items-center">
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="absolute text-gray-500 focus:outline-none top-5 left-1 lg:hidden"
+          className="absolute text-gray-500 focus:outline-none top-6 left-1 lg:hidden"
         >
           <svg
             className="w-6 h-6"
